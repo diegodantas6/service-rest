@@ -1,7 +1,6 @@
 package br.com.teste.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,18 +10,15 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 
 @NamedQueries({
-	@NamedQuery(name = "clienteFindAll", query = "select c from Cliente c"),
-	@NamedQuery(name = "clienteFindById", query = "select c from Cliente c where c.id = :id")
+	@NamedQuery(name = "login", query = "select u from Usuario u where u.user = :user and u.pass = :pass")
 })
 
-@Table(name = "cliente")
-public class Cliente implements Serializable {
+@Table(name = "usuario")
+public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -33,9 +29,11 @@ public class Cliente implements Serializable {
 	@Column(nullable = false)
 	private String nome;
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "data_nascimento")
-	private Date nascimento;
+	@Column(nullable = false)
+	private String user;
+
+	@Column(nullable = false)
+	private String pass;
 
 	public Long getId() {
 		return id;
@@ -53,12 +51,20 @@ public class Cliente implements Serializable {
 		this.nome = nome;
 	}
 
-	public Date getNascimento() {
-		return nascimento;
+	public String getUser() {
+		return user;
 	}
 
-	public void setNascimento(Date nascimento) {
-		this.nascimento = nascimento;
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 }

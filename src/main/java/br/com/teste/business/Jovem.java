@@ -26,13 +26,13 @@ public class Jovem {
 	}
 
 	public List<Cliente> getClientes() {
-		TypedQuery<Cliente> query = entityManager.createNamedQuery("findAll", Cliente.class);
+		TypedQuery<Cliente> query = entityManager.createNamedQuery("clienteFindAll", Cliente.class);
 		
 		return query.getResultList();
 	}
 
 	public Cliente getCliente(Long id) {
-		TypedQuery<Cliente> query = entityManager.createNamedQuery("findById", Cliente.class);
+		TypedQuery<Cliente> query = entityManager.createNamedQuery("clienteFindById", Cliente.class);
 		query.setParameter("id", id);
 		
 		return query.getSingleResult();

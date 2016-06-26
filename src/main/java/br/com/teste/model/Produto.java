@@ -1,9 +1,8 @@
 package br.com.teste.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.math.BigDecimal;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,18 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 
-@NamedQueries({
-	@NamedQuery(name = "clienteFindAll", query = "select c from Cliente c"),
-	@NamedQuery(name = "clienteFindById", query = "select c from Cliente c where c.id = :id")
-})
+@NamedQueries({ @NamedQuery(name = "produtoFindAll", query = "select p from Produto p"),
+		@NamedQuery(name = "produtoFindById", query = "select p from Produto p where p.id = :id") })
 
-@Table(name = "cliente")
-public class Cliente implements Serializable {
+@Table(name = "produto")
+public class Produto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -30,12 +25,9 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false)
 	private String nome;
-
-	@Temporal(TemporalType.DATE)
-	@Column(name = "data_nascimento")
-	private Date nascimento;
+	private Long quantidade;
+	private BigDecimal preco;
 
 	public Long getId() {
 		return id;
@@ -53,12 +45,20 @@ public class Cliente implements Serializable {
 		this.nome = nome;
 	}
 
-	public Date getNascimento() {
-		return nascimento;
+	public Long getQuantidade() {
+		return quantidade;
 	}
 
-	public void setNascimento(Date nascimento) {
-		this.nascimento = nascimento;
+	public void setQuantidade(Long quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public BigDecimal getPreco() {
+		return preco;
+	}
+
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
 	}
 
 }
