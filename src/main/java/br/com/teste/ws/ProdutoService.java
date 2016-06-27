@@ -33,6 +33,14 @@ public class ProdutoService {
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Produto read(@PathParam("id") Long id) {
+		
+		try {
+			Thread.sleep(2000);	
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
 		return produtoBusiness.read(id);
 	}
 	

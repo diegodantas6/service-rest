@@ -11,7 +11,7 @@ import javax.ws.rs.ext.Provider;
 import br.com.teste.business.UsuarioBusiness;
 
 @Provider
-public class Login implements ContainerRequestFilter {
+public class LoginFilter implements ContainerRequestFilter {
 
 	@EJB
 	private UsuarioBusiness usuarioBusiness;
