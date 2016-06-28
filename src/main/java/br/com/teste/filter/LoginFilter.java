@@ -19,11 +19,11 @@ public class LoginFilter implements ContainerRequestFilter {
 	@Override
 	public void filter(ContainerRequestContext requestContext) throws IOException {
 		
-		String user = requestContext.getHeaderString("user");
-		String pass = requestContext.getHeaderString("pass");
-
-		if (!(usuarioBusiness.login(user, pass))) {
-			requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).entity("User cannot access the resource.").build());
-		}
+//		String user = requestContext.getHeaderString("user");
+//		String pass = requestContext.getHeaderString("pass");
+//
+//		if (!(usuarioBusiness.login(user, pass))) {
+//			requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).entity("User cannot access the resource.").build());
+//		}
 	}
 }

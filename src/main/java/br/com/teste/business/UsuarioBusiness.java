@@ -30,4 +30,26 @@ public class UsuarioBusiness {
 			return false;
 		}
 	}
+
+	public void setFoto(Long id, byte[] foto) {
+		Usuario usuario = entityManager.find(Usuario.class, id);
+		
+		usuario.setFoto(foto);
+		
+		entityManager.merge(usuario);
+	}
+	
+	public Usuario create(Usuario usuario) {
+		try {
+			entityManager.persist(usuario);
+			
+			return usuario;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	
+	public Usuario read(Long id) {
+		return entityManager.find(Usuario.class, id);
+	}
 }

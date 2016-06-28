@@ -34,6 +34,8 @@ public class Usuario implements Serializable {
 
 	@Column(nullable = false)
 	private String pass;
+	
+	private byte[] foto;
 
 	public Long getId() {
 		return id;
@@ -65,6 +67,14 @@ public class Usuario implements Serializable {
 
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+
+	public byte[] getFoto() {
+		return foto;
+	}
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
 	}
 
 }
